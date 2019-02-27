@@ -1,8 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
-
-import { AudioProvider, IAudioTrack, ITrackConstraint } from 'ionic-audio';
+import { ITrackConstraint } from 'ionic-audio';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +13,7 @@ export class HomePage {
   currentIndex: number = -1;
   currentTrack: ITrackConstraint;
 
-  constructor(public navCtrl: NavController, private _cdRef: ChangeDetectorRef) {
+  constructor(private _cdRef: ChangeDetectorRef) {
     // plugin won't preload data by default, unless preload property is defined within json object - defaults to 'none'
     this.myTracks = [{
       src: 'https://archive.org/download/JM2013-10-05.flac16/V0/jm2013-10-05-t12-MP3-V0.mp3',
@@ -31,7 +29,7 @@ export class HomePage {
       art: 'assets/img/johnmayer.jpg',
       preload: 'metadata' // tell the plugin to preload metadata such as duration for this track,  set to 'none' to turn off
     },
-    
+
     {
       src: 'https://archive.org/download/swrembel2010-03-07.tlm170.flac16/swrembel2010-03-07s1t05.mp3',
       artist: 'Stephane Wrembel',
